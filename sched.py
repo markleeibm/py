@@ -3,9 +3,9 @@ import pandas as pd
 pd.options.display.max_rows = 9999      #output all rows in DF
 #print(pd.options.display.max_rows) 
 
-dfJS = pd.read_csv('srcuniqjs.csv')
+dfJS = pd.read_csv('uniqjs.csv')
 #print(dfJS.info())  
-dfJSD = pd.read_csv('srcuniqdepend.csv')
+dfJSD = pd.read_csv('jsdepend.csv')
 #print(dfJSD.info())  
 
 #print('starting position:')
@@ -25,6 +25,8 @@ for jsdindex,jsdrow in dfJSD.iterrows():
         dfJSD.at[jsdindex,'SUCCESSOR_JOBSTREAM']='xxx' #put non-existent js in right
 #print('dealt with rows in jsd where js not in master list')
 #print(dfJSD)
+outputJSNum=1
+print('ORDER,JOBSTREAM')
 while True:
     #print ('numberToCheck=',len(dfJS))
     if (len(dfJS)) == 0: 
@@ -42,7 +44,8 @@ while True:
                 #print (thisjs,'found on the right')
         if (foundOnRight==0):
             #print('outputing this js next due on left') #output it
-            print(thisjs)
+            print("%d,%s" % (outputJSNum,thisjs))
+            outputJSNum += 1
             for jsdindex,jsdrow in dfJSD.iterrows():    #we have to shift left all JS on the right
                 if (thisjs==jsdrow['JOBSTREAM']):
                     rhjs=jsdrow['SUCCESSOR_JOBSTREAM']
