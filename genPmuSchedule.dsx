@@ -1,0 +1,4662 @@
+BEGIN HEADER
+   CharacterSet "CP1252"
+   ExportingTool "IBM InfoSphere DataStage Export"
+   ToolVersion "8"
+   ServerName "MLGRID1.FYRE.IBM.COM"
+   ToolInstanceID "aaML"
+   MDISVersion "1.0"
+   Date "2022-05-12"
+   Time "07.30.11"
+   ServerVersion "11.7"
+END HEADER
+BEGIN DSJOB
+   Identifier "genPmuSchedule"
+   DateModified "2022-05-11"
+   TimeModified "21.42.16"
+   BEGIN DSRECORD
+      Identifier "ROOT"
+      OLEType "CJobDefn"
+      Readonly "0"
+      Name "genPmuSchedule"
+      NextID "3"
+      Container "V0"
+      JobVersion "56.0.0"
+      ControlAfterSubr "0"
+      Parameters "CParameters"
+      BEGIN DSSUBRECORD
+         Name "pOutputFileName"
+         Prompt "Full Path OutputFileName"
+         Default "/opt/IBM/homes/dsadm/ml/tmp/py/pmuschedule"
+         ParamType "4"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "pProjectName"
+         Prompt "DataStage Project Name"
+         Default "ADP"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "AdvancedRuntimeOptions"
+         Value "#DSProjectARTOptions#"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "IdentList"
+         Value "jobStreamJobsOrdered|sfOrderedjCsv|xfAddJobPos|luJobsForJS|stJSJobs|sfPMUSchedule|luActiveJobList|sfActiveJobList|sfScheduleDetails|xfSD|xfGenPMUSchedule|Lookup_69|Remove_Duplicates_75|Transformer_77|Peek_83|Peek_86"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "ClientCodePage"
+         Value "1252"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceMode"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceSeq"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceRecords"
+         Value "100"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceSkip"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TracePeriod"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RecordJobPerformanceData"
+         Value "0"
+      END DSSUBRECORD
+      NULLIndicatorPosition "0"
+      IsTemplate "0"
+      NLSLocale ",,,,"
+      JobType "3"
+      Category "\\Jobs\\GenSchedule"
+      CenturyBreakYear "30"
+      NextAliasID "2"
+      ParameterFileDDName "DD00001"
+      ReservedWordCheck "1"
+      TransactionSize "0"
+      ValidationStatus "0"
+      Uploadable "0"
+      PgmCustomizationFlag "0"
+      JobReportFlag "0"
+      AllowMultipleInvocations "0"
+      Act2ActOverideDefaults "0"
+      Act2ActEnableRowBuffer "0"
+      Act2ActUseIPC "0"
+      Act2ActBufferSize "0"
+      Act2ActIPCTimeout "0"
+      ExpressionSemanticCheckFlag "0"
+      TraceOption "0"
+      EnableCacheSharing "0"
+      RuntimeColumnPropagation "0"
+      RelStagesInJobStatus "-1"
+      WebServiceEnabled "0"
+      MFProcessMetaData "0"
+      MFProcessMetaDataXMLFileExchangeMethod "0"
+      IMSProgType "0"
+      CopyLibPrefix "ARDT"
+      RecordPerformanceResults "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0"
+      OLEType "CContainerView"
+      Readonly "0"
+      Name "Job"
+      NextID "1"
+      IsTopLevel "0"
+      StageList "V0S0|V0S1|V0S6|V0S13|V0S16|V0S24|V0A27|V0S28|V0S30|V0S33|V0S37|V0A42|V2S0|V0S69|V0S75|V0S77|V0S83|V0S86"
+      StageXPos "336|120|336|336|552|1008|75|744|456|744|744|852|888|744|744|576|888|648"
+      StageYPos "192|432|312|432|432|432|301|432|216|0|120|497|432|216|336|216|144|312"
+      StageTypes "CCustomStage|CCustomStage|CTransformerStage|CCustomStage|CCustomStage|CCustomStage|ID_PALETTEANNOTATION|CCustomStage|CCustomStage|CCustomStage|CTransformerStage|ID_PALETTEANNOTATION|CTransformerStage|CCustomStage|CCustomStage|CTransformerStage|CCustomStage|CCustomStage"
+      NextStageID "87"
+      SnapToGrid "1"
+      GridLines "0"
+      ZoomValue "100"
+      StageXSize "48|48|48|48|48|48|177|48|48|48|48|97|48|48|48|48|48|48"
+      StageYSize "48|48|48|48|48|48|231|48|48|48|48|156|48|48|48|48|48|48"
+      ContainerViewSizing "0052 0052 0796 0474 0000 0001 0077 0000"
+      StageNames "jobStreamJobsOrdered|sfOrderedjCsv|xfAddJobPos|luJobsForJS|stJSJobs|sfPMUSchedule| |luActiveJobList|sfActiveJobList|sfScheduleDetails|xfSD| |xfGenPMUSchedule|Lookup_69|Remove_Duplicates_75|Transformer_77|Peek_83|Peek_86"
+      StageTypeIDs "PxSequentialFile|PxSequentialFile|CTransformerStage|PxLookup|PxSort|PxSequentialFile| |PxLookup|PxSequentialFile|PxSequentialFile|CTransformerStage| |CTransformerStage|PxLookup|PxRemDup|CTransformerStage|PxPeek|PxPeek"
+      LinkNames "ln1|lnInput|lnLu|ln2|ln3| | |ln4|lnAJL|lnSD|DSLink82,DSLink54| |ln2Filter|DSLink70|lnluAJL|DSLink78,DSLink85| | "
+      LinkHasMetaDatas "True|True|True|True|True| | |True|True|True|True,True| |True|True|True|True,True| | "
+      LinkTypes "1|1|2|1|1| | |1|1|1|1,2| |1|1|2|1,1| | "
+      LinkNamePositionXs "360|246|360|434|650| | |811|516|768|811,775| |946|768|768|659,627| | "
+      LinkNamePositionYs "255|456|372|456|456| | |456|240|74|149,166| |456|289|386|242,260| | "
+      TargetStageIDs "V0S6|V0S13|V0S13|V0S16|V0S28| | |V2S0|V0S77|V0S37|V0S83,V0S69| |V0S24|V0S75|V0S28|V0S69,V0S86| | "
+      SourceStageEffectiveExecutionModes "1|1|1|1|1| | |1|1|1|1,1| |1|2|2|2,2| | "
+      SourceStageRuntimeExecutionModes "1|1|1|1|1| | |1|1|1|1,1| |1|2|2|2,2| | "
+      TargetStageEffectiveExecutionModes "1|1|1|1|1| | |1|2|1|2,2| |1|2|1|2,2| | "
+      TargetStageRuntimeExecutionModes "1|1|1|1|1| | |1|2|1|2,2| |1|2|1|2,2| | "
+      LinkIsSingleOperatorLookup "False|False|False|False|False| | |False|False|False|False,False| |False|False|False|False,False| | "
+      LinkIsSortSequential "False|False|False|False|False| | |False|False|False|False,False| |False|False|False|False,False| | "
+      LinkSortMode "0|0|0|0|0| | |0|0|0|0,0| |0|0|0|0,0| | "
+      LinkPartColMode "1|1|1|1|1| | |1|1|1|1,1| |1|1|1|1,1| | "
+      LinkSourcePinIDs "V0S0P1|V0S1P1|V0S6P2|V0S13P3|V0S16P3| | |V0S28P6|V0S30P1|V0S33P1|V0S37P4,V0S37P3| |V2S0P2|V0S69P3|V0S75P1|V0S77P2,V0S77P4| | "
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0A27"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V0A27"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText "This is generated by upstream script/python"
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "1"
+      TextVerticalJustification "0"
+      TextColor "0"
+      BackgroundColor "12713983"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0A42"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V0A42"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText "Drop any jobs not in the active job list"
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\1"
+      TextHorizontalJustification "1"
+      TextVerticalJustification "1"
+      TextColor "0"
+      BackgroundColor "12713983"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S0"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "jobStreamJobsOrdered"
+      NextID "2"
+      OutputPins "V0S0P1"
+      StageType "PxSequentialFile"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S0P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "ln1"
+      Partner "V0S6|V0S6P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "schema"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "selection"
+         Value "file"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "keepPartitions"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "rejects"
+         Value "continue"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "reportProgress"
+         Value "yes"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "firstLineColumnNames"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "file "
+         Value "\(2)\(2)0\(1)\(3)file \(2)/opt/IBM/homes/dsadm/ml/tmp/py/jobStreamJobsOrdered.csv\(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "missingFile"
+         Value " "
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "JOBSTREAM"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "12"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\JobStreamJobsOrdered.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOBSTREAM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOBPOS"
+         SqlType "4"
+         Precision "10"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "1"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\JobStreamJobsOrdered.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOBNO"
+         APTFieldProp "quote=none"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOB"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "8"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\JobStreamJobsOrdered.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOB"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+         Value "final_delim=end, delim=',', null_field='', quote=none"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "360"
+      TopTextPos "255"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S1"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "sfOrderedjCsv"
+      NextID "2"
+      OutputPins "V0S1P1"
+      StageType "PxSequentialFile"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S13"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "luJobsForJS"
+      NextID "4"
+      InputPins "V0S13P1|V0S13P2"
+      OutputPins "V0S13P3"
+      StageType "PxLookup"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "compileopt"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "linkopt"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Execmode"
+         Value "seq"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "LookupOperator"
+         Value "lookup"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S13P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "lnInput"
+      Partner "V0S1|V0S1P1"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "allow_dups"
+         Value " "
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S13P2"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "lnLu"
+      Partner "V0S6|V0S6P2"
+      LinkType "2"
+      ConditionNotMet "fail"
+      LookupFail "drop"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "allow_dups"
+         Value "allow_dups"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S13P3"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "ln2"
+      Partner "V0S16|V0S16P1"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "JSORDER"
+         SqlType "4"
+         Precision "10"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "1"
+         Derivation "lnInput.JSORDER"
+         Group "0"
+         ParsedDerivation "lnInput.JSORDER"
+         SourceColumn "lnInput.JSORDER"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "ORDER"
+         APTFieldProp "quote=none"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOBSTREAM"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "15"
+         Derivation "lnInput.JOBSTREAM"
+         Group "0"
+         ParsedDerivation "lnInput.JOBSTREAM"
+         SourceColumn "lnInput.JOBSTREAM"
+         KeyExpression "lnLu.JOBSTREAM"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOBSTREAM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyParsedDerivation "lnLu.JOBSTREAM"
+         PKeySourceColumn "lnLu.JOBSTREAM"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOBPOS"
+         SqlType "4"
+         Precision "0"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "lnLu.JOBPOS"
+         Group "0"
+         ParsedDerivation "lnLu.JOBPOS"
+         SourceColumn "lnLu.JOBPOS"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOB"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "8"
+         Derivation "lnLu.JOB"
+         Group "0"
+         ParsedDerivation "lnLu.JOB"
+         SourceColumn "lnLu.JOB"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjobsbyjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOB"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "434"
+      TopTextPos "456"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S16"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "stJSJobs"
+      NextID "4"
+      InputPins "V0S16P1"
+      OutputPins "V0S16P3"
+      StageType "PxSort"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "operator"
+         Value "tsort"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "stable"
+         Value "stable"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "unique"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "stats"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "key"
+         Value "\(2)\(2)0\(1)\(3)key\(2)JSORDER\(2)0\(1)\(3)\(3)asc\\desc\(2)asc\(2)0\(1)\(3)\(3)sorted\\clustered\(2) \(2)0\(1)\(3)key\(2)JOBPOS\(2)0\(1)\(3)\(3)asc\\desc\(2)asc\(2)0\(1)\(3)\(3)sorted\\clustered\(2) \(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "flagCluster"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "flagKey"
+         Value " "
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Execmode"
+         Value "seq"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S16P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "ln2"
+      Partner "V0S13|V0S13P3"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S16P3"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "ln3"
+      Partner "V0S28|V0S28P9"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "job"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "ln2.JOB"
+         Group "0"
+         ParsedDerivation "ln2.JOB"
+         SourceColumn "ln2.JOB"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "jobstream"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "ln2.JOBSTREAM"
+         Group "0"
+         ParsedDerivation "ln2.JOBSTREAM"
+         SourceColumn "ln2.JOBSTREAM"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JSORDER"
+         SqlType "4"
+         Precision "10"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "1"
+         Derivation "ln2.JSORDER"
+         Group "0"
+         ParsedDerivation "ln2.JSORDER"
+         SourceColumn "ln2.JSORDER"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "ORDER"
+         APTFieldProp "quote=none"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOBPOS"
+         SqlType "4"
+         Precision "0"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "ln2.JOBPOS"
+         Group "0"
+         ParsedDerivation "ln2.JOBPOS"
+         SourceColumn "ln2.JOBPOS"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "650"
+      TopTextPos "456"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S1P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "lnInput"
+      Partner "V0S13|V0S13P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "schema"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "selection"
+         Value "file"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "keepPartitions"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "rejects"
+         Value "continue"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "reportProgress"
+         Value "yes"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "firstLineColumnNames"
+         Value "firstLineColumnNames"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "file "
+         Value "\(2)\(2)0\(1)\(3)file \(2)/opt/IBM/homes/dsadm/ml/tmp/py/orderedjs.csv\(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "missingFile"
+         Value " "
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "JSORDER"
+         SqlType "4"
+         Precision "10"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "1"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "ORDER"
+         APTFieldProp "quote=none"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOBSTREAM"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "15"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOBSTREAM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+         Value "final_delim=end, delim=',', null_field='', quote=none"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "246"
+      TopTextPos "456"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S24"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "sfPMUSchedule"
+      NextID "5"
+      InputPins "V0S24P4"
+      StageType "PxSequentialFile"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S24P4"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "ln2Filter"
+      Partner "V2S0|V2S0P2"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "schema"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "file"
+         Value "\(2)\(2)0\(1)\(3)file\(2)#pOutputFileName#\(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "append\\overwrite"
+         Value "overwrite"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "nocleanup"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "rejects"
+         Value "continue"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "firstLineColumnNames"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "writemethod"
+         Value "\(2)\(2)0\(1)\(3)writemethod\(2) \(2)0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+         Value "final_delim=end, delim=',', null_field='', quote=none"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S28"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "luActiveJobList"
+      NextID "10"
+      InputPins "V0S28P5|V0S28P9"
+      OutputPins "V0S28P6"
+      StageType "PxLookup"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "compileopt"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "linkopt"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "LookupOperator"
+         Value "lookup"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Execmode"
+         Value "seq"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S28P5"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "lnluAJL"
+      Partner "V0S75|V0S75P1"
+      LinkType "2"
+      ConditionNotMet "fail"
+      LookupFail "drop"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "allow_dups"
+         Value " "
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S28P6"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "ln4"
+      Partner "V2S0|V2S0P1"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "job"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "ln3.job"
+         Group "0"
+         ParsedDerivation "ln3.job"
+         SourceColumn "ln3.job"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "jobstream"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "ln3.jobstream"
+         Group "0"
+         ParsedDerivation "ln3.jobstream"
+         SourceColumn "ln3.jobstream"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "811"
+      TopTextPos "456"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S28P9"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "ln3"
+      Partner "V0S16|V0S16P3"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "allow_dups"
+         Value " "
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S30"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "sfActiveJobList"
+      NextID "2"
+      OutputPins "V0S30P1"
+      StageType "PxSequentialFile"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S30P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "lnAJL"
+      Partner "V0S77|V0S77P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "schema"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "selection"
+         Value "file"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "keepPartitions"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "rejects"
+         Value "continue"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "reportProgress"
+         Value "yes"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "firstLineColumnNames"
+         Value "firstLineColumnNames"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "file "
+         Value "\(2)\(2)0\(1)\(3)file \(2)/opt/IBM/homes/dsadm/ml/tmp/py/activeJobList.csv\(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "missingFile"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "filepattern"
+         Value "\(2)\(2)0"
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "Project"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "3"
+         Group "0"
+         KeyExpression "DSLink54.DSProjectName"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\activeJobList.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "Project"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyParsedDerivation "DSLink54.DSProjectName"
+         PKeySourceColumn "DSLink54.DSProjectName"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Job"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "39"
+         Group "0"
+         KeyExpression "DSLink54.DSJobname"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\activeJobList.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "Job"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyParsedDerivation "DSLink54.DSJobname"
+         PKeySourceColumn "DSLink54.DSJobname"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+         Value "final_delim=end, delim=',', null_field='', quote=none"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "516"
+      TopTextPos "240"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S33"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "sfScheduleDetails"
+      NextID "2"
+      OutputPins "V0S33P1"
+      StageType "PxSequentialFile"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S33P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "lnSD"
+      Partner "V0S37|V0S37P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "schema"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "selection"
+         Value "file"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "keepPartitions"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "rejects"
+         Value "continue"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "reportProgress"
+         Value "yes"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "firstLineColumnNames"
+         Value "firstLineColumnNames"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "file "
+         Value "\(2)\(2)0\(1)\(3)file \(2)/opt/IBM/homes/dsadm/ml/tmp/py/scheduleDetails.csv\(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "missingFile"
+         Value " "
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "INI_FILE_NAME"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "33"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "INI_FILE_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "DSProjectName"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "14"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "PROJECT_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SEQ_NAME"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "SEQ_NAME"
+         APTFieldProp "null_field=''"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOB_SEQ_NAME"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "33"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOB_SEQ_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "DSJobname"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "33"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "FINAL_JOB_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TWS_JOB_NAME"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "8"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "TWS_JOB_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TWS_BATCH_NAME"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "13"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "TWS_BATCH_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Field008"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "Field008"
+         APTFieldProp "null_field=''"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOB_STREAM_TYPE"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOB_STREAM_TYPE"
+         APTFieldProp "null_field=''"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+         Value "final_delim=end, delim=',', null_field='', quote=double"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "768"
+      TopTextPos "74"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S37"
+      OLEType "CTransformerStage"
+      Readonly "0"
+      Name "xfSD"
+      NextID "5"
+      InputPins "V0S37P1"
+      OutputPins "V0S37P4|V0S37P3"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCode"
+         Value =+=+=+=
+//
+// Generated file to implement the V0S37_genPmuSchedule_xfSD transform operator.
+//
+
+// define our input/output link names
+inputname 0 lnSD;
+outputname 0 DSLink82;
+outputname 1 DSLink54;
+
+global {
+ // Job parameter declaration
+ ustring[] pProjectName;
+}
+
+initialize {
+ // define our control variables
+ int8 RowRejected0;
+ int8 NullSetVar0;
+
+}
+
+mainloop {
+
+ // declare our intermediate variables for this section (2)
+ string InterVar0_0;
+
+ // initialise the rejected row variable
+ RowRejected0 = 1;
+
+ // evaluate constraint and columns for link: DSLink82
+ InterVar0_0 = pProjectName;
+ if ((lnSD.DSProjectName == InterVar0_0))
+ {
+  writerecord 0;
+  RowRejected0 = 0;
+ }
+ // evaluate constraint and columns for link: DSLink54
+ InterVar0_0 = pProjectName;
+ if ((lnSD.DSProjectName == InterVar0_0))
+ {
+  writerecord 1;
+  RowRejected0 = 0;
+ }
+}
+
+finish {
+}
+
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCache"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxClassName"
+         Value "V0S37_genPmuSchedule_xfSD"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "JobParameterNames"
+         Value "pProjectName"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Execmode"
+         Value "seq"
+      END DSSUBRECORD
+      ValidationStatus "0"
+      StageType "CTransformerStage"
+      BlockSize "0"
+      SKKeySourceType "file"
+      StageVarsMinimised "0"
+      LoopVarsMaximised "0"
+      MaxLoopIterations "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S37P1"
+      OLEType "CTrxInput"
+      Readonly "0"
+      Name "lnSD"
+      Partner "V0S33|V0S33P1"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  INI_FILE_NAME:string[max=255];
+  DSProjectName:string[max=255];
+  SEQ_NAME:nullable string[max=255];
+  JOB_SEQ_NAME:string[max=255];
+  DSJobname:string[max=255];
+  TWS_JOB_NAME:string[max=255];
+  TWS_BATCH_NAME:string[max=255];
+  Field008:nullable string[max=255];
+  JOB_STREAM_TYPE:nullable string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      MultiRow "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S37P3"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "DSLink54"
+      Partner "V0S69|V0S69P4"
+      Constraint "lnSD.DSProjectName = pProjectName"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      ParsedConstraint "lnSD.DSProjectName = pProjectName"
+      SourceColumns "lnSD.DSProjectName"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "DSProjectName"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "14"
+         Derivation "lnSD.DSProjectName"
+         Group "0"
+         ParsedDerivation "lnSD.DSProjectName"
+         SourceColumn "lnSD.DSProjectName"
+         KeyExpression "DSLink78.Project"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "PROJECT_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyParsedDerivation "DSLink78.Project"
+         PKeySourceColumn "DSLink78.Project"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "DSJobname"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "33"
+         Derivation "lnSD.DSJobname"
+         Group "0"
+         ParsedDerivation "lnSD.DSJobname"
+         SourceColumn "lnSD.DSJobname"
+         KeyExpression "DSLink78.Job"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "FINAL_JOB_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyParsedDerivation "DSLink78.Job"
+         PKeySourceColumn "DSLink78.Job"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TWS_JOB_NAME"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "8"
+         Derivation "lnSD.TWS_JOB_NAME"
+         Group "0"
+         ParsedDerivation "lnSD.TWS_JOB_NAME"
+         SourceColumn "lnSD.TWS_JOB_NAME"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "TWS_JOB_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TWS_BATCH_NAME"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "13"
+         Derivation "lnSD.TWS_BATCH_NAME"
+         Group "0"
+         ParsedDerivation "lnSD.TWS_BATCH_NAME"
+         SourceColumn "lnSD.TWS_BATCH_NAME"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "TWS_BATCH_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  DSProjectName:string[max=255];
+  DSJobname:string[max=255];
+  TWS_JOB_NAME:string[max=255];
+  TWS_BATCH_NAME:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      LeftTextPos "775"
+      TopTextPos "166"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S37P4"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "DSLink82"
+      Partner "V0S83|V0S83P1"
+      Constraint "lnSD.DSProjectName = pProjectName"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      ParsedConstraint "lnSD.DSProjectName = pProjectName"
+      SourceColumns "lnSD.DSProjectName"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "DSProjectName"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "14"
+         Derivation "lnSD.DSProjectName"
+         Group "0"
+         ParsedDerivation "lnSD.DSProjectName"
+         SourceColumn "lnSD.DSProjectName"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "PROJECT_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "DSJobname"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "33"
+         Derivation "lnSD.DSJobname"
+         Group "0"
+         ParsedDerivation "lnSD.DSJobname"
+         SourceColumn "lnSD.DSJobname"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "FINAL_JOB_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  DSProjectName:string[max=255];
+  DSJobname:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      LeftTextPos "811"
+      TopTextPos "149"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S6"
+      OLEType "CTransformerStage"
+      Readonly "0"
+      Name "xfAddJobPos"
+      NextID "3"
+      InputPins "V0S6P1"
+      OutputPins "V0S6P2"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Execmode"
+         Value "seq"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCode"
+         Value =+=+=+=
+//
+// Generated file to implement the V0S6_genPmuSchedule_xfAddJobPos transform operator.
+//
+
+// define our input/output link names
+inputname 0 ln1;
+outputname 0 lnLu;
+
+initialize {
+ // define our control variables
+ int8 RowRejected0;
+ int8 NullSetVar0;
+
+}
+
+mainloop {
+
+ // initialise the rejected row variable
+ RowRejected0 = 1;
+
+ // evaluate columns (no constraints) for link: lnLu
+ writerecord 0;
+ RowRejected0 = 0;
+}
+
+finish {
+}
+
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCache"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxClassName"
+         Value "V0S6_genPmuSchedule_xfAddJobPos"
+      END DSSUBRECORD
+      ValidationStatus "0"
+      StageType "CTransformerStage"
+      BlockSize "0"
+      SKKeySourceType "file"
+      StageVarsMinimised "0"
+      LoopVarsMaximised "0"
+      MaxLoopIterations "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S69"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "Lookup_69"
+      NextID "6"
+      InputPins "V0S69P4|V0S69P5"
+      OutputPins "V0S69P3"
+      StageType "PxLookup"
+      AllowColumnMapping "0"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "LookupOperator"
+         Value "lookup"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S69P3"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "DSLink70"
+      Partner "V0S75|V0S75P2"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "TWS_JOB_NAME"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "8"
+         Derivation "DSLink54.TWS_JOB_NAME"
+         Group "0"
+         ParsedDerivation "DSLink54.TWS_JOB_NAME"
+         SourceColumn "DSLink54.TWS_JOB_NAME"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "TWS_JOB_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TWS_BATCH_NAME"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "13"
+         Derivation "DSLink54.TWS_BATCH_NAME"
+         Group "0"
+         ParsedDerivation "DSLink54.TWS_BATCH_NAME"
+         SourceColumn "DSLink54.TWS_BATCH_NAME"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\scheduleDetails.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "TWS_BATCH_NAME"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "768"
+      TopTextPos "289"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S69P4"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "DSLink54"
+      Partner "V0S37|V0S37P3"
+      LinkType "2"
+      ConditionNotMet "fail"
+      LookupFail "drop"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "allow_dups"
+         Value "allow_dups"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S69P5"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "DSLink78"
+      Partner "V0S77|V0S77P2"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "allow_dups"
+         Value " "
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S6P1"
+      OLEType "CTrxInput"
+      Readonly "0"
+      Name "ln1"
+      Partner "V0S0|V0S0P1"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  JOBSTREAM:string[max=255];
+  JOBPOS:int32;
+  JOB:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      MultiRow "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S6P2"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "lnLu"
+      Partner "V0S13|V0S13P2"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "JOBSTREAM"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "12"
+         Derivation "ln1.JOBSTREAM"
+         Group "0"
+         ParsedDerivation "ln1.JOBSTREAM"
+         SourceColumn "ln1.JOBSTREAM"
+         KeyExpression "lnInput.JOBSTREAM"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\JobStreamJobsOrdered.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOBSTREAM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyParsedDerivation "lnInput.JOBSTREAM"
+         PKeySourceColumn "lnInput.JOBSTREAM"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOBPOS"
+         SqlType "4"
+         Precision "0"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "ln1.JOBPOS"
+         Group "0"
+         ParsedDerivation "ln1.JOBPOS"
+         SourceColumn "ln1.JOBPOS"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOB"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "8"
+         Derivation "ln1.JOB"
+         Group "0"
+         ParsedDerivation "ln1.JOB"
+         SourceColumn "ln1.JOB"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjobsbyjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOB"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  JOBSTREAM:string[max=255];
+  JOBPOS:int32;
+  JOB:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      LeftTextPos "360"
+      TopTextPos "372"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S75"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "Remove_Duplicates_75"
+      NextID "3"
+      InputPins "V0S75P2"
+      OutputPins "V0S75P1"
+      StageType "PxRemDup"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "keep"
+         Value "first"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "key"
+         Value "\(2)\(2)0\(1)\(3)key\(2)TWS_BATCH_NAME\(2)0\(1)\(3)key\(2)TWS_JOB_NAME\(2)0"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S75P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "lnluAJL"
+      Partner "V0S28|V0S28P5"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "job"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "0"
+         Derivation "DSLink70.TWS_JOB_NAME"
+         Group "0"
+         ParsedDerivation "DSLink70.TWS_JOB_NAME"
+         SourceColumn "DSLink70.TWS_JOB_NAME"
+         KeyExpression "ln3.job"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyParsedDerivation "ln3.job"
+         PKeySourceColumn "ln3.job"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "jobstream"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "0"
+         Derivation "DSLink70.TWS_BATCH_NAME"
+         Group "0"
+         ParsedDerivation "DSLink70.TWS_BATCH_NAME"
+         SourceColumn "DSLink70.TWS_BATCH_NAME"
+         KeyExpression "ln3.jobstream"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyParsedDerivation "ln3.jobstream"
+         PKeySourceColumn "ln3.jobstream"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "768"
+      TopTextPos "386"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S75P2"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "DSLink70"
+      Partner "V0S69|V0S69P3"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S77"
+      OLEType "CTransformerStage"
+      Readonly "0"
+      Name "Transformer_77"
+      NextID "5"
+      InputPins "V0S77P1"
+      OutputPins "V0S77P2|V0S77P4"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCode"
+         Value =+=+=+=
+//
+// Generated file to implement the V0S77_genPmuSchedule_Transformer_77 transform operator.
+//
+
+// define our input/output link names
+inputname 0 lnAJL;
+outputname 0 DSLink78;
+outputname 1 DSLink85;
+
+global {
+ // Job parameter declaration
+ ustring[] pProjectName;
+}
+
+initialize {
+ // define our control variables
+ int8 RowRejected0;
+ int8 NullSetVar0;
+
+ // declare our intermediate variables for this section (1)
+ string InterVar0_1;
+
+ // initialise constant values which require conversion
+ InterVar0_1 = ".";
+}
+
+mainloop {
+
+ // declare our intermediate variables for this section (2)
+ string InterVar0_0;
+
+ // initialise the rejected row variable
+ RowRejected0 = 1;
+
+ // evaluate constraint and columns for link: DSLink78
+ InterVar0_0 = pProjectName;
+ if ((lnAJL.Project == InterVar0_0))
+ {
+  DSLink78.Job = substring_by_delimiter(lnAJL.Job , InterVar0_1 , 1);
+  writerecord 0;
+  RowRejected0 = 0;
+ }
+ // evaluate constraint and columns for link: DSLink85
+ InterVar0_0 = pProjectName;
+ if ((lnAJL.Project == InterVar0_0))
+ {
+  DSLink85.Job = substring_by_delimiter(lnAJL.Job , InterVar0_1 , 1);
+  writerecord 1;
+  RowRejected0 = 0;
+ }
+}
+
+finish {
+}
+
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "JobParameterNames"
+         Value "pProjectName"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCache"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxClassName"
+         Value "V0S77_genPmuSchedule_Transformer_77"
+      END DSSUBRECORD
+      ValidationStatus "0"
+      StageType "CTransformerStage"
+      BlockSize "0"
+      StageVarsMinimised "0"
+      LoopVarsMaximised "0"
+      MaxLoopIterations "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S77P1"
+      OLEType "CTrxInput"
+      Readonly "0"
+      Name "lnAJL"
+      Partner "V0S30|V0S30P1"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  Project:string[max=255];
+  Job:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      MultiRow "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S77P2"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "DSLink78"
+      Partner "V0S69|V0S69P5"
+      Constraint "lnAJL.Project = pProjectName"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      ParsedConstraint "lnAJL.Project = pProjectName"
+      SourceColumns "lnAJL.Project"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "Project"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "3"
+         Derivation "lnAJL.Project"
+         Group "0"
+         ParsedDerivation "lnAJL.Project"
+         SourceColumn "lnAJL.Project"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\activeJobList.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "Project"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Job"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "39"
+         Derivation "Field(lnAJL.Job,'.',1)"
+         Group "0"
+         ParsedDerivation "Field(lnAJL.Job, '.', 1)"
+         SourceColumn "lnAJL.Job"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\activeJobList.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "Job"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  Project:string[max=255];
+  Job:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      LeftTextPos "659"
+      TopTextPos "242"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S77P4"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "DSLink85"
+      Partner "V0S86|V0S86P1"
+      Constraint "lnAJL.Project = pProjectName"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      ParsedConstraint "lnAJL.Project = pProjectName"
+      SourceColumns "lnAJL.Project"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "Project"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "3"
+         Derivation "lnAJL.Project"
+         Group "0"
+         ParsedDerivation "lnAJL.Project"
+         SourceColumn "lnAJL.Project"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\activeJobList.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "Project"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Job"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "39"
+         Derivation "Field(lnAJL.Job,'.',1)"
+         Group "0"
+         ParsedDerivation "Field(lnAJL.Job, '.', 1)"
+         SourceColumn "lnAJL.Job"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\activeJobList.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "Job"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  Project:string[max=255];
+  Job:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      LeftTextPos "627"
+      TopTextPos "260"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S83"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "Peek_83"
+      NextID "2"
+      InputPins "V0S83P1"
+      StageType "PxPeek"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "all"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "nrecs"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "dataset"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "name"
+         Value "name"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "columns"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "selection"
+         Value " "
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S83P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "DSLink82"
+      Partner "V0S37|V0S37P4"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S86"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "Peek_86"
+      NextID "2"
+      InputPins "V0S86P1"
+      StageType "PxPeek"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "all"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "nrecs"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "dataset"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "name"
+         Value "name"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "columns"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "selection"
+         Value " "
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S86P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "DSLink85"
+      Partner "V0S77|V0S77P4"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V2S0"
+      OLEType "CTransformerStage"
+      Readonly "0"
+      Name "xfGenPMUSchedule"
+      NextID "3"
+      InputPins "V2S0P1"
+      OutputPins "V2S0P2"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Execmode"
+         Value "seq"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCode"
+         Value =+=+=+=
+//
+// Generated file to implement the V2S0_genPmuSchedule_xfGenPMUSchedule transform operator.
+//
+
+// define our input/output link names
+inputname 0 ln4;
+outputname 0 ln2Filter;
+
+initialize {
+ // define our control variables
+ int8 RowRejected0;
+ int8 NullSetVar0;
+
+ // declare our intermediate variables for this section (1)
+ string InterVar0_0;
+ string InterVar0_1;
+
+ // initialise constant values which require conversion
+ InterVar0_0 = "x";
+ InterVar0_1 = "#";
+ // Stage variable declaration and initialisation
+ string StageVar0_svCurrJS;
+ StageVar0_svCurrJS = InterVar0_0;
+ int32 StageVar0_svKeyChange;
+ StageVar0_svKeyChange = 1;
+ string StageVar0_outputRow;
+ StageVar0_outputRow = "";
+ string StageVar0_svPrevJS;
+ StageVar0_svPrevJS = "";
+}
+
+mainloop {
+
+ // evaluate the stage variables first
+ StageVar0_svCurrJS = ln4.jobstream;
+ if ((StageVar0_svCurrJS != StageVar0_svPrevJS)) {
+  StageVar0_svKeyChange = 1;
+ } else {
+  StageVar0_svKeyChange = 0;
+ }
+ //;
+ if ((StageVar0_svKeyChange == 1)) {
+  StageVar0_outputRow = (((InterVar0_1 + ln4.jobstream) + char_from_num(10)) + ln4.job);
+ } else {
+  StageVar0_outputRow = ln4.job;
+ }
+ //;
+ StageVar0_svPrevJS = ln4.jobstream;
+
+ // initialise the rejected row variable
+ RowRejected0 = 1;
+
+ // evaluate columns (no constraints) for link: ln2Filter
+ ln2Filter.output = StageVar0_outputRow;
+ writerecord 0;
+ RowRejected0 = 0;
+}
+
+finish {
+}
+
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCache"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxClassName"
+         Value "V2S0_genPmuSchedule_xfGenPMUSchedule"
+      END DSSUBRECORD
+      ValidationStatus "0"
+      StageType "CTransformerStage"
+      BlockSize "0"
+      SKKeySourceType "file"
+      StageVars "CStageVar"
+      BEGIN DSSUBRECORD
+         Name "svCurrJS"
+         Expression "ln4.jobstream"
+         InitialValue "'x'"
+         SqlType "12"
+         ParsedExpression "ln4.jobstream"
+         SourceColumn "ln4.jobstream"
+         Precision "18"
+         ColScale "4"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "svKeyChange"
+         Expression "if svCurrJS <> svPrevJS then 1 else 0"
+         InitialValue "1"
+         SqlType "4"
+         ParsedExpression " if svCurrJS <> svPrevJS then 1 else 0"
+         StageVars "svCurrJS;svPrevJS"
+         Precision "18"
+         ColScale "4"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "outputRow"
+         Expression "if svKeyChange=1 then \"#\":ln4.jobstream: Char(10):ln4.job else ln4.job"
+         SqlType "12"
+         ParsedExpression " if svKeyChange = 1 then \"#\" : ln4.jobstream : Char(10) : ln4.job else ln4.job"
+         SourceColumn "ln4.jobstream;ln4.job"
+         StageVars "svKeyChange"
+         Precision "255"
+         ColScale "0"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "svPrevJS"
+         Expression "ln4.jobstream"
+         SqlType "12"
+         ParsedExpression "ln4.jobstream"
+         SourceColumn "ln4.jobstream"
+         Precision "18"
+         ColScale "4"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      StageVarsMinimised "0"
+      LoopVarsMaximised "1"
+      MaxLoopIterations "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V2S0P1"
+      OLEType "CTrxInput"
+      Readonly "0"
+      Name "ln4"
+      Partner "V0S28|V0S28P6"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  job:string[max=255];
+  jobstream:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      MultiRow "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V2S0P2"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "ln2Filter"
+      Partner "V0S24|V0S24P4"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "output"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "outputRow"
+         Group "0"
+         ParsedDerivation "outputRow"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         StageVars "outputRow"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  output:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "946"
+      TopTextPos "456"
+      LinkMinimised "0"
+   END DSRECORD
+END DSJOB
+BEGIN DSJOB
+   Identifier "v1genPmuSchedule"
+   DateModified "2022-05-11"
+   TimeModified "12.19.38"
+   BEGIN DSRECORD
+      Identifier "ROOT"
+      OLEType "CJobDefn"
+      Readonly "0"
+      Name "v1genPmuSchedule"
+      NextID "2"
+      Container "V0"
+      JobVersion "56.0.0"
+      ControlAfterSubr "0"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "AdvancedRuntimeOptions"
+         Value "#DSProjectARTOptions#"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "IdentList"
+         Value "sfOrderedjobsbyjsCsv|sfOrderedjCsv|xfAddJobPos|luJobsForJS|stJSJobs|sfPMUSchedule|xfGenPMUSchedule"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "ClientCodePage"
+         Value "1252"
+      END DSSUBRECORD
+      NULLIndicatorPosition "0"
+      IsTemplate "0"
+      JobType "3"
+      Category "\\Jobs\\GenSchedule"
+      CenturyBreakYear "30"
+      NextAliasID "2"
+      ParameterFileDDName "DD00001"
+      ReservedWordCheck "1"
+      TransactionSize "0"
+      ValidationStatus "0"
+      Uploadable "0"
+      PgmCustomizationFlag "0"
+      JobReportFlag "0"
+      AllowMultipleInvocations "0"
+      Act2ActOverideDefaults "0"
+      Act2ActEnableRowBuffer "0"
+      Act2ActUseIPC "0"
+      Act2ActBufferSize "0"
+      Act2ActIPCTimeout "0"
+      ExpressionSemanticCheckFlag "0"
+      TraceOption "0"
+      EnableCacheSharing "0"
+      RuntimeColumnPropagation "0"
+      RelStagesInJobStatus "-1"
+      WebServiceEnabled "0"
+      MFProcessMetaData "0"
+      MFProcessMetaDataXMLFileExchangeMethod "0"
+      IMSProgType "0"
+      CopyLibPrefix "ARDT"
+      RecordPerformanceResults "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0"
+      OLEType "CContainerView"
+      Readonly "0"
+      Name "Job"
+      NextID "1"
+      IsTopLevel "0"
+      StageList "V0S0|V0S1|V0S6|V0S13|V0S16|V0S24|V1S0|V0A27"
+      StageXPos "408|192|408|408|552|792|672|131"
+      StageYPos "72|312|192|312|312|312|312|186"
+      StageTypes "CCustomStage|CCustomStage|CTransformerStage|CCustomStage|CCustomStage|CCustomStage|CTransformerStage|ID_PALETTEANNOTATION"
+      NextStageID "28"
+      SnapToGrid "1"
+      GridLines "0"
+      ZoomValue "100"
+      StageXSize "48|48|48|48|48|48|48|177"
+      StageYSize "48|48|48|48|48|48|48|231"
+      ContainerViewSizing "0052 0052 0796 0474 0000 0001 0000 0000"
+      StageNames "sfOrderedjobsbyjsCsv|sfOrderedjCsv|xfAddJobPos|luJobsForJS|stJSJobs|sfPMUSchedule|xfGenPMUSchedule| "
+      StageTypeIDs "PxSequentialFile|PxSequentialFile|CTransformerStage|PxLookup|PxSort|PxSequentialFile|CTransformerStage| "
+      LinkNames "ln1|lnInput|lnLu|ln2|ln3| |lnOutput| "
+      LinkHasMetaDatas "True|True|True|True|True| |True| "
+      LinkTypes "1|1|2|1|1| |1| "
+      LinkNamePositionXs "432|295|432|474|602| |742| "
+      LinkNamePositionYs "150|336|260|336|336| |336| "
+      TargetStageIDs "V0S6|V0S13|V0S13|V0S16|V1S0| |V0S24| "
+      SourceStageEffectiveExecutionModes "1|1|1|1|1| |1| "
+      SourceStageRuntimeExecutionModes "1|1|1|1|1| |1| "
+      TargetStageEffectiveExecutionModes "1|1|1|1|1| |1| "
+      TargetStageRuntimeExecutionModes "1|1|1|1|1| |1| "
+      LinkIsSingleOperatorLookup "False|False|False|False|False| |False| "
+      LinkIsSortSequential "False|False|False|False|False| |False| "
+      LinkSortMode "0|0|0|0|0| |0| "
+      LinkPartColMode "1|1|1|1|1| |1| "
+      LinkSourcePinIDs "V0S0P1|V0S1P1|V0S6P2|V0S13P3|V0S16P3| |V1S0P2| "
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0A27"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V0A27"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText "This is generated by upstream script/python"
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "1"
+      TextVerticalJustification "0"
+      TextColor "0"
+      BackgroundColor "12713983"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S0"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "sfOrderedjobsbyjsCsv"
+      NextID "2"
+      OutputPins "V0S0P1"
+      StageType "PxSequentialFile"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S0P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "ln1"
+      Partner "V0S6|V0S6P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "schema"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "selection"
+         Value "file"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "keepPartitions"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "rejects"
+         Value "continue"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "reportProgress"
+         Value "yes"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "firstLineColumnNames"
+         Value "firstLineColumnNames"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "file "
+         Value "\(2)\(2)0\(1)\(3)file \(2)/opt/IBM/homes/dsadm/ml/tmp/py/orderedjobsbyjs.csv\(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "missingFile"
+         Value " "
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "JOBSTREAM"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "12"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjobsbyjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOBSTREAM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOB"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "8"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjobsbyjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOB"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+         Value "final_delim=end, delim=',', null_field='', quote=none"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "432"
+      TopTextPos "150"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S1"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "sfOrderedjCsv"
+      NextID "2"
+      OutputPins "V0S1P1"
+      StageType "PxSequentialFile"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S13"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "luJobsForJS"
+      NextID "4"
+      InputPins "V0S13P1|V0S13P2"
+      OutputPins "V0S13P3"
+      StageType "PxLookup"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "compileopt"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "linkopt"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Execmode"
+         Value "seq"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "LookupOperator"
+         Value "lookup"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S13P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "lnInput"
+      Partner "V0S1|V0S1P1"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "allow_dups"
+         Value " "
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S13P2"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "lnLu"
+      Partner "V0S6|V0S6P2"
+      LinkType "2"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "allow_dups"
+         Value "allow_dups"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S13P3"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "ln2"
+      Partner "V0S16|V0S16P1"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "JSORDER"
+         SqlType "4"
+         Precision "10"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "1"
+         Derivation "lnInput.JSORDER"
+         Group "0"
+         ParsedDerivation "lnInput.JSORDER"
+         SourceColumn "lnInput.JSORDER"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "ORDER"
+         APTFieldProp "quote=none"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOBSTREAM"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "15"
+         Derivation "lnInput.JOBSTREAM"
+         Group "0"
+         ParsedDerivation "lnInput.JOBSTREAM"
+         SourceColumn "lnInput.JOBSTREAM"
+         KeyExpression "lnLu.JOBSTREAM"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOBSTREAM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyParsedDerivation "lnLu.JOBSTREAM"
+         PKeySourceColumn "lnLu.JOBSTREAM"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOBPOS"
+         SqlType "4"
+         Precision "0"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "lnLu.JOBPOS"
+         Group "0"
+         ParsedDerivation "lnLu.JOBPOS"
+         SourceColumn "lnLu.JOBPOS"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOB"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "8"
+         Derivation "lnLu.JOB"
+         Group "0"
+         ParsedDerivation "lnLu.JOB"
+         SourceColumn "lnLu.JOB"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjobsbyjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOB"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "474"
+      TopTextPos "336"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S16"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "stJSJobs"
+      NextID "4"
+      InputPins "V0S16P1"
+      OutputPins "V0S16P3"
+      StageType "PxSort"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "operator"
+         Value "tsort"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "stable"
+         Value "stable"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "unique"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "stats"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "key"
+         Value "\(2)\(2)0\(1)\(3)key\(2)JSORDER\(2)0\(1)\(3)\(3)asc\\desc\(2)asc\(2)0\(1)\(3)\(3)sorted\\clustered\(2) \(2)0\(1)\(3)key\(2)JOB\(2)0\(1)\(3)\(3)asc\\desc\(2)asc\(2)0\(1)\(3)\(3)sorted\\clustered\(2) \(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "flagCluster"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "flagKey"
+         Value " "
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Execmode"
+         Value "seq"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S16P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "ln2"
+      Partner "V0S13|V0S13P3"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S16P3"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "ln3"
+      Partner "V1S0|V1S0P1"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "job"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "ln2.JOB"
+         Group "0"
+         ParsedDerivation "ln2.JOB"
+         SourceColumn "ln2.JOB"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "jobstream"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "ln2.JOBSTREAM"
+         Group "0"
+         ParsedDerivation "ln2.JOBSTREAM"
+         SourceColumn "ln2.JOBSTREAM"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "602"
+      TopTextPos "336"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S1P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "lnInput"
+      Partner "V0S13|V0S13P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "schema"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "selection"
+         Value "file"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "keepPartitions"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "rejects"
+         Value "continue"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "reportProgress"
+         Value "yes"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "firstLineColumnNames"
+         Value "firstLineColumnNames"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "file "
+         Value "\(2)\(2)0\(1)\(3)file \(2)/opt/IBM/homes/dsadm/ml/tmp/py/orderedjs.csv\(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "missingFile"
+         Value " "
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "JSORDER"
+         SqlType "4"
+         Precision "10"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "1"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "ORDER"
+         APTFieldProp "quote=none"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOBSTREAM"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "15"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOBSTREAM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+         Value "final_delim=end, delim=',', null_field='', quote=none"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "295"
+      TopTextPos "336"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S24"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "sfPMUSchedule"
+      NextID "3"
+      InputPins "V0S24P2"
+      StageType "PxSequentialFile"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S24P2"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "lnOutput"
+      Partner "V1S0|V1S0P2"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "schema"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "file"
+         Value "\(2)\(2)0\(1)\(3)file\(2)/opt/IBM/homes/dsadm/ml/tmp/py/pmuschedule\(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "append\\overwrite"
+         Value "overwrite"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "nocleanup"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "rejects"
+         Value "continue"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "firstLineColumnNames"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "writemethod"
+         Value "\(2)\(2)0\(1)\(3)writemethod\(2) \(2)0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+         Value "final_delim=end, delim=',', quote=none"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S6"
+      OLEType "CTransformerStage"
+      Readonly "0"
+      Name "xfAddJobPos"
+      NextID "3"
+      InputPins "V0S6P1"
+      OutputPins "V0S6P2"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Execmode"
+         Value "seq"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCode"
+         Value =+=+=+=
+//
+// Generated file to implement the V0S6_genPmuSchedule_xfAddJobPos transform operator.
+//
+
+// define our input/output link names
+inputname 0 ln1;
+outputname 0 lnLu;
+
+initialize {
+ // define our control variables
+ int8 RowRejected0;
+ int8 NullSetVar0;
+
+ // Stage variable declaration and initialisation
+ int32 StageVar0_jobpos;
+ StageVar0_jobpos = 0;
+}
+
+mainloop {
+
+ // evaluate the stage variables first
+ StageVar0_jobpos = (StageVar0_jobpos + 1);
+
+ // initialise the rejected row variable
+ RowRejected0 = 1;
+
+ // evaluate columns (no constraints) for link: lnLu
+ lnLu.JOBPOS = StageVar0_jobpos;
+ writerecord 0;
+ RowRejected0 = 0;
+}
+
+finish {
+}
+
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCache"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxClassName"
+         Value "V0S6_genPmuSchedule_xfAddJobPos"
+      END DSSUBRECORD
+      ValidationStatus "0"
+      StageType "CTransformerStage"
+      BlockSize "0"
+      SKKeySourceType "file"
+      StageVars "CStageVar"
+      BEGIN DSSUBRECORD
+         Name "jobpos"
+         Expression "jobpos + 1"
+         InitialValue "0"
+         SqlType "4"
+         ParsedExpression "jobpos + 1"
+         StageVars "jobpos"
+         Precision "255"
+         ColScale "0"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      StageVarsMinimised "0"
+      LoopVarsMaximised "0"
+      MaxLoopIterations "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S6P1"
+      OLEType "CTrxInput"
+      Readonly "0"
+      Name "ln1"
+      Partner "V0S0|V0S0P1"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  JOBSTREAM:string[max=255];
+  JOB:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      MultiRow "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S6P2"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "lnLu"
+      Partner "V0S13|V0S13P2"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "JOBSTREAM"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "12"
+         Derivation "ln1.JOBSTREAM"
+         Group "0"
+         ParsedDerivation "ln1.JOBSTREAM"
+         SourceColumn "ln1.JOBSTREAM"
+         KeyExpression "lnInput.JOBSTREAM"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjobsbyjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOBSTREAM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyParsedDerivation "lnInput.JOBSTREAM"
+         PKeySourceColumn "lnInput.JOBSTREAM"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOBPOS"
+         SqlType "4"
+         Precision "0"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "jobpos"
+         Group "0"
+         ParsedDerivation "jobpos"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         StageVars "jobpos"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "JOB"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "8"
+         Derivation "ln1.JOB"
+         Group "0"
+         ParsedDerivation "ln1.JOB"
+         SourceColumn "ln1.JOB"
+         SortKey "0"
+         SortType "0"
+         TableDef "Sequential\\py\\orderedjobsbyjs.csv"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "JOB"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  JOBSTREAM:string[max=255];
+  JOBPOS:int32;
+  JOB:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      LeftTextPos "432"
+      TopTextPos "260"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V1S0"
+      OLEType "CTransformerStage"
+      Readonly "0"
+      Name "xfGenPMUSchedule"
+      NextID "3"
+      InputPins "V1S0P1"
+      OutputPins "V1S0P2"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Execmode"
+         Value "seq"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCode"
+         Value =+=+=+=
+//
+// Generated file to implement the V1S0_genPmuSchedule_xfGenPMUSchedule transform operator.
+//
+
+// define our input/output link names
+inputname 0 ln3;
+outputname 0 lnOutput;
+
+initialize {
+ // define our control variables
+ int8 RowRejected0;
+ int8 NullSetVar0;
+
+ // declare our intermediate variables for this section (1)
+ string InterVar0_0;
+ string InterVar0_1;
+
+ // initialise constant values which require conversion
+ InterVar0_0 = "x";
+ InterVar0_1 = "#";
+ // Stage variable declaration and initialisation
+ string StageVar0_svCurrJS;
+ StageVar0_svCurrJS = InterVar0_0;
+ int32 StageVar0_svKeyChange;
+ StageVar0_svKeyChange = 1;
+ string StageVar0_outputRow;
+ StageVar0_outputRow = "";
+ string StageVar0_svPrevJS;
+ StageVar0_svPrevJS = "";
+}
+
+mainloop {
+
+ // evaluate the stage variables first
+ StageVar0_svCurrJS = ln3.jobstream;
+ if ((StageVar0_svCurrJS != StageVar0_svPrevJS)) {
+  StageVar0_svKeyChange = 1;
+ } else {
+  StageVar0_svKeyChange = 0;
+ }
+ //;
+ if ((StageVar0_svKeyChange == 1)) {
+  StageVar0_outputRow = (((InterVar0_1 + ln3.jobstream) + char_from_num(10)) + ln3.job);
+ } else {
+  StageVar0_outputRow = ln3.job;
+ }
+ //;
+ StageVar0_svPrevJS = ln3.jobstream;
+
+ // initialise the rejected row variable
+ RowRejected0 = 1;
+
+ // evaluate columns (no constraints) for link: lnOutput
+ lnOutput.output = StageVar0_outputRow;
+ writerecord 0;
+ RowRejected0 = 0;
+}
+
+finish {
+}
+
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCache"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxClassName"
+         Value "V1S0_genPmuSchedule_xfGenPMUSchedule"
+      END DSSUBRECORD
+      ValidationStatus "0"
+      StageType "CTransformerStage"
+      BlockSize "0"
+      SKKeySourceType "file"
+      StageVars "CStageVar"
+      BEGIN DSSUBRECORD
+         Name "svCurrJS"
+         Expression "ln3.jobstream"
+         InitialValue "'x'"
+         SqlType "12"
+         ParsedExpression "ln3.jobstream"
+         SourceColumn "ln3.jobstream"
+         Precision "18"
+         ColScale "4"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "svKeyChange"
+         Expression "if svCurrJS <> svPrevJS then 1 else 0"
+         InitialValue "1"
+         SqlType "4"
+         ParsedExpression " if svCurrJS <> svPrevJS then 1 else 0"
+         StageVars "svCurrJS;svPrevJS"
+         Precision "18"
+         ColScale "4"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "outputRow"
+         Expression "if svKeyChange=1 then \"#\":ln3.jobstream: Char(10):ln3.job else ln3.job"
+         SqlType "12"
+         ParsedExpression " if svKeyChange = 1 then \"#\" : ln3.jobstream : Char(10) : ln3.job else ln3.job"
+         SourceColumn "ln3.jobstream;ln3.job"
+         StageVars "svKeyChange"
+         Precision "255"
+         ColScale "0"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "svPrevJS"
+         Expression "ln3.jobstream"
+         SqlType "12"
+         ParsedExpression "ln3.jobstream"
+         SourceColumn "ln3.jobstream"
+         Precision "18"
+         ColScale "4"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      StageVarsMinimised "0"
+      LoopVarsMaximised "1"
+      MaxLoopIterations "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V1S0P1"
+      OLEType "CTrxInput"
+      Readonly "0"
+      Name "ln3"
+      Partner "V0S16|V0S16P3"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  job:string[max=255];
+  jobstream:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      MultiRow "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V1S0P2"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "lnOutput"
+      Partner "V0S24|V0S24P2"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "output"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "outputRow"
+         Group "0"
+         ParsedDerivation "outputRow"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         StageVars "outputRow"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  output:string[max=255];
+)
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "742"
+      TopTextPos "336"
+      LinkMinimised "0"
+   END DSRECORD
+END DSJOB

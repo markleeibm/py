@@ -1,11 +1,16 @@
+#
+# sched.py
+# Version 1.0 Wed May 11 10:46:56 BST 2022 ML
+# derive a sequential running order of TWS jobstreams given a dependency list
+#
 import pandas as pd
 
 pd.options.display.max_rows = 9999      #output all rows in DF
 #print(pd.options.display.max_rows) 
 
-dfJS = pd.read_csv('uniqjs.csv')
+dfJS = pd.read_csv('uniqjs.csv') #unique list of jobstreams we are interested in determining the run order, one column: JOBSTREAM
 #print(dfJS.info())  
-dfJSD = pd.read_csv('jsdepend.csv')
+dfJSD = pd.read_csv('jsdepend.csv') #list of jobstream depedencies,two columns: JOBSTREAM,SUCCESSOR_JOBSTREAM
 #print(dfJSD.info())  
 
 #print('starting position:')
